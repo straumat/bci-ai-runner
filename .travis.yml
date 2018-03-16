@@ -1,0 +1,9 @@
+language: java
+jdk:
+    - oraclejdk8
+sudo: required
+services:
+  - docker
+script:
+    - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+    - docker push $DOCKER_USERNAME/bci-ai-runner

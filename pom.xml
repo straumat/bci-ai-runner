@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- =========================================================================================================== -->
+    <!-- Project information -->
+    <groupId>com.oakinvest.b2g</groupId>
+    <artifactId>bci-ai-runner</artifactId>
+    <version>1.0</version>
+    <packaging>war</packaging>
+    <name>bci-ai-runner</name>
+    <description>Blockchain Inspector Artificial Intelligence runner</description>
+    <url>https://github.com/straumat/bci-ai-runner</url>
+    <!-- =========================================================================================================== -->
+
+    <!-- =========================================================================================================== -->
+    <!-- Organization -->
+    <organization>
+        <name>Oak Invest</name>
+        <url>http://www.oak-invest.com</url>
+    </organization>
+    <!-- =========================================================================================================== -->
+
+    <!-- =========================================================================================================== -->
+    <!-- Developers -->
+    <developers>
+        <!-- Stéphane Traumat (straumat) -->
+        <developer>
+            <id>straumat</id>
+            <name>Stéphane Traumat</name>
+            <email>stephane.traumat@gmail.com</email>
+            <url>https://about.me/straumat</url>
+            <organization>Oak Invest</organization>
+            <organizationUrl>http://www.oak-invest.com</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>Europe/Paris</timezone>
+        </developer>
+    </developers>
+    <!-- =========================================================================================================== -->
+
+    <!-- =========================================================================================================== -->
+    <!-- Project configuration -->
+    <properties>
+
+        <!-- Java project configuration -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
+        <!-- Docker -->
+        <!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin -->
+        <dockerfile-maven-plugin.version>1.4.0</dockerfile-maven-plugin.version>
+        <docker.image.prefix>straumat</docker.image.prefix>
+
+    </properties>
+    <!-- =========================================================================================================== -->
+
+
+    <!-- =========================================================================================================== -->
+    <!-- Dependencies configuration -->
+    <dependencies>
+
+        <!-- Docker -->
+        <dependency>
+            <groupId>com.spotify</groupId>
+            <artifactId>dockerfile-maven-plugin</artifactId>
+            <version>${dockerfile-maven-plugin.version}</version>
+        </dependency>
+
+    </dependencies>
+    <!-- =========================================================================================================== -->
+
+    <!-- =========================================================================================================== -->
+    <!-- Build configuration -->
+    <build>
+        <finalName>bci-ai-runner</finalName>
+
+        <!-- Plugins -->
+        <plugins>
+
+            <!-- Docker plugin -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>${dockerfile-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                    </execution>
+                </executions>
+                <configuration>
+                    <repository>${docker.image.prefix}/${project.artifactId}</repository>
+                    <tag>${project.version}</tag>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+    <!-- =========================================================================================================== -->
+
+</project>
