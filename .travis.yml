@@ -4,6 +4,9 @@ jdk:
 sudo: required
 services:
   - docker
+cache:
+  directories:
+    - $HOME/.m2
 script:
     - mvn dockerfile:build
 after_success:

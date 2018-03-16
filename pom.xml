@@ -8,7 +8,7 @@
     <groupId>com.oakinvest.b2g</groupId>
     <artifactId>bci-ai-runner</artifactId>
     <version>1.0</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>bci-ai-runner</name>
     <description>Blockchain Inspector Artificial Intelligence runner</description>
     <url>https://github.com/straumat/bci-ai-runner</url>
