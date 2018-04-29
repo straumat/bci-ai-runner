@@ -12,7 +12,7 @@ ${PROJECT_SOURCE_DIR}/main.cpp
 
 add_definitions(-D_SPIRDEBUG=0)
 
-SET(CMAKE_CXX_FLAGS "-m64 -std=c++03 -ansi -fpermissive -fshort-wchar -fno-rtti -W")
+SET(CMAKE_CXX_FLAGS "-m32 -std=c++03 -ansi -fpermissive -fshort-wchar -fno-rtti -W")
 SET(CMAKE_CXX_FLAGS_DEBUG "-g")
 SET(CMAKE_CXX_FLAGS_RELEASE " ")
 
@@ -38,4 +38,3 @@ link_directories(
 
 add_executable(main ${SOURCES})
 target_link_libraries(main inspector spirmemory neo4j-client pthread X11 dl)
-
