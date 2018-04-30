@@ -4,7 +4,7 @@ MAINTAINER Stéphane Traumat, stephane.traumat@gmail.com
 
 # Environment.
 ENV DEBIAN_FRONTEND noninteractive
-ENV NEO4J_HOSTNAME  neo4j
+ENV NEO4J_HOSTNAME  127.0.0.1
 ENV NEO4J_PORT  7687
 ENV NEO4J_USERNAME  neo4j
 ENV NEO4J_PASSWORD  b2g135!
