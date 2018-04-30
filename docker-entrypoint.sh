@@ -1,24 +1,18 @@
 #!/bin/bash
 
 # Bin to create.
-BINARY="/src/run"
+BINARY="/src/main"
 
 # Delete old release.
 if [ -f $BINARY ]; then
     rm $BINARY
 fi
 
+# Compile sources.
 cd /src
 cmake . && make
 
-ls -ual /lib
-
-#cpack --config /src/CMakeLists.txt
-
-# Compile new release.
-#g++ -I/src -I/lib /src/$SRC_FILE -o $BINARY
-
-# If it has been successfully compiled, run it !
-#if [ -f $BINARY ]; then
-#    ./src/run
-#fi
+# If it has been successfully compiled, run it.
+if [ -f $BINARY ]; then
+    /src/main -port $NEO4J_PORT -host $NEO4J_HOSTNAME -password $NEO4J_PASSWORD -login $NEO4J_USERNAME -rule $RULE
+fi
